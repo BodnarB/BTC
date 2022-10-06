@@ -33,7 +33,7 @@ function exchange() {
         }
         btcOwned.innerText = buy.value
         Math.floor((buy.value*btcPrice) * 100000) / 100000
-        usdOwned.innerText = (usdBalance - Math.floor((buy.value*btcPrice) * 100000) / 100000).toFixed(5)
+        usdOwned.innerText = (usdBalance - Math.floor((buy.value*btcPrice) * 100000) / 100000).toFixed(3)
     })
 
 }

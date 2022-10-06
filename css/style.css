@@ -20,15 +20,15 @@ h1 {
 }
 
 .interface {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 40% 47%;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 1rem;
     gap: 1rem;
     max-width: 800px;
-    display: flex;
-    flex-wrap: wrap;
     border: 1px solid rgba(255, 255, 255, 0.144);
-    justify-content: space-evenly;
-    align-items: center;
     border-radius: 0.1rem;
 }
 
@@ -49,13 +49,15 @@ h1 {
 
 .label {
     position: relative;
+    height: 80px;
     background-color: rgba(36, 36, 36, 0.658);
     padding: 1.5rem;
     margin: 1rem auto;
-    display: block;
-    width: fit-content;
     border: 1px solid rgba(255, 166, 0, 0.4);
     border-radius: 0.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .info {
@@ -75,7 +77,7 @@ h1 {
 
 input {
     width: 100px;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     padding: 0.3rem;
     border: 1px solid rgba(0, 0, 0, 0.418);
 }
@@ -83,6 +85,7 @@ input {
 button {
     padding: 0.4rem;
     border-radius: 0.2rem;
+    margin: 0 0.2rem;
 }
 
 .buy-btn:hover {
