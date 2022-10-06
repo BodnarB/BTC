@@ -14,19 +14,21 @@
     <h1>BTC/USD</h1>
     <div class="interface">
         <div>
-            <p class="label">USD Balance: <span class="usd-balance">100</span> $</p>
-            <p class="label">BTC Balance: <span class="btc-balance">0</span> BTC</p>
+            <p class="container">USD Balance: <span class="usd-balance">1000</span> $</p>
+            <p class="container">BTC Balance: <span class="btc-balance">0</span> BTC</p>
         </div>
         <div>
-            <label class="label" for="">Buy BTC:<input class="buy-js" type="number" min="0" max="5">
+            <div class="container">
+                <label for="">Buy BTC:<input class="buy-js" type="number" min="0" max="5" step=".001"> </label>
                 <p class="info hide">Insufficient funds</p>
                 <button class="buy-btn" type="button">BUY</button>
                 <button class="buy-max" type="button">MAX</button>
-            </label>
-            <label class="label" for="">Sell BTC:<input class="sell-js" type="number" min="0" max="5">
+            </div>
+            <div class="container">
+                <label for="">Sell BTC:<input class="sell-js" type="number" min="0" max="5" step=".001"></label>
                 <button class="sell-btn" type="button">SELL</button>
                 <button class="sell-max" type="button">MAX</button>
-            </label>
+            </div>
         </div>
     </div>
 

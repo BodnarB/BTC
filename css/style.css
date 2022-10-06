@@ -48,7 +48,7 @@ h1 {
     font-size: 1.1rem;
 }
 
-.label {
+.container {
     position: relative;
     height: 80px;
     background-color: rgba(36, 36, 36, 0.658);
@@ -89,7 +89,7 @@ button {
     margin: 0 0.2rem;
 }
 
-button:hover{
+button:hover {
     transition-duration: 0.2s;
     cursor: pointer;
 }
@@ -102,6 +102,7 @@ button:hover{
     background-color: rgb(253, 137, 137);
 }
 
-.buy-max:hover, .sell-max:hover {
+.buy-max:hover,
+.sell-max:hover {
     background-color: rgb(134, 217, 255);
 }
