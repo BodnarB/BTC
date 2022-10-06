@@ -4,7 +4,7 @@ const buyBtn = document.querySelector('.buy-btn')
 const sellBtn = document.querySelector('.sell-btn')
 const buy = document.querySelector('.buy-js')
 const sell = document.querySelector('.sell-js')
-const usd = document.querySelector('.usd-balance')
+const usdOwned = document.querySelector('.usd-balance')
 const btcOwned = document.querySelector('.btc-balance')
 const buyMaxBtn = document.querySelector('.buy-max')
 let btcPrice
@@ -14,8 +14,8 @@ let timestamps = []
 let sortedY = btcHistory.slice().sort((a, b) => a - b)
 
 function exchange() {
-    let usdBalance = usd.innerText.replace(/\D/g, "")
-    let btcBalance = btcOwned.innerText.replace(/\D/g, "")
+    let usdBalance = parseInt(usdOwned.innerText)
+    let btcBalance = parseInt(btcOwned.innerText)
     if (btcBalance <= 0) {
         sell.disabled = true
     }
@@ -23,8 +23,17 @@ function exchange() {
         buy.disabled = true
     }
     buyMaxBtn.addEventListener('click', () => {
-       console.log((usdBalance/btcPrice).toFixed(5)) 
-       buy.value = (usdBalance/btcPrice).toFixed(5)
+        buy.value = Math.floor((usdBalance / btcPrice) * 100000) / 100000
+    })
+    buyBtn.addEventListener('click', () => {
+        if (buy.value > (usdBalance / btcPrice).toFixed(5)) {
+            document.querySelector('.info').classList.toggle('hide')
+            buy.value = 0
+            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1600)
+        }
+        btcOwned.innerText = buy.value
+        Math.floor((buy.value*btcPrice) * 100000) / 100000
+        usdOwned.innerText = (usdBalance - Math.floor((buy.value*btcPrice) * 100000) / 100000).toFixed(5)
     })
 
 }
