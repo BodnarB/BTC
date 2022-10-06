@@ -65,7 +65,7 @@ h1 {
     position: absolute;
     z-index: 1;
     font-size: 1.1rem;
-    top: -20%;
+    bottom: -30%;
     left: 50%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0.5rem;

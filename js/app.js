@@ -35,6 +35,20 @@ function exchange() {
     sellMaxBtn.addEventListener('click', () => {
         sellInput.value = btcBalanceNUM.toFixed(5)
     })
+    sellBtn.addEventListener('click', () => {
+        if (sellInput.value > btcBalanceNUM.toFixed(5)) {
+            document.querySelector('.info').classList.toggle('hide')
+            sellInput.value = 0
+            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1600)
+        }
+        else {
+            btcBalanceNUM -= parseFloat(sellInput.value)
+            btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
+            usdBalanceNUM += parseFloat((sellInput.value * btcPrice).toFixed(5))
+            usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
+            sellInput.value = 0
+        }
+    })
 }
 // parseFloat(usdBalanceNUM / btcPrice).toFixed(5)
 // (Math.floor((buyInput.value * btcPrice) * 100000) / 100000)
