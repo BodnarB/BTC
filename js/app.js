@@ -14,13 +14,19 @@ let timestamps = []
 let sortedY = btcHistory.slice().sort((a, b) => a - b)
 
 function exchange() {
-    let usdBalance = parseInt(usdOwned.innerText)
-    let btcBalance = parseInt(btcOwned.innerText)
+    let usdBalance = Math.floor((usdOwned.innerText) * 100000) / 100000
+    let btcBalance = Math.floor((btcOwned.innerText) * 100000) / 100000
     if (btcBalance <= 0) {
         sell.disabled = true
     }
-    if (usdBalance <= 0) {
+    if (btcBalance > 0) {
+        sell.disabled = false
+    }
+    if (usdBalance <= 1) {
         buy.disabled = true
+    }
+    if (usdBalance > 1) {
+        buy.disabled = false
     }
     buyMaxBtn.addEventListener('click', () => {
         buy.value = Math.floor((usdBalance / btcPrice) * 100000) / 100000
@@ -34,6 +40,8 @@ function exchange() {
         btcOwned.innerText = buy.value
         Math.floor((buy.value*btcPrice) * 100000) / 100000
         usdOwned.innerText = (usdBalance - Math.floor((buy.value*btcPrice) * 100000) / 100000).toFixed(3)
+        buy.value = 0
+        exchange()
     })
 
 }
