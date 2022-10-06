@@ -1,0 +1,63 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+    color: whitesmoke;
+}
+
+h1 {
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#myChart {
+    margin: 2rem auto;
+    background-color: rgb(59, 59, 59);
+    border: 1px solid rgba(245, 245, 245, 0.1);
+}
+
+.interface {
+    margin: 0 auto;
+    padding: 1.5rem;
+    gap: 1rem;
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.144);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.data-div {
+    max-width: 300px;
+    margin: 1rem auto;
+    background-color: rgb(39, 39, 39);
+    color: rgb(245, 245, 245);
+    border: 2px solid rgb(255, 165, 0);
+    padding: 1rem;
+    border-radius: 0.2rem;
+    font-weight: bold;
+}
+
+.data-p {
+    font-size: 1.1rem;
+}
+
+.label {
+    background-color: rgba(36, 36, 36, 0.658);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    display: block;
+    width: fit-content;
+    border: 1px solid rgba(255, 166, 0, 0.4);
+    border-radius: 0.1rem;
+}
+
+input {
+    margin: 0 1rem;
+    padding: 0.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.418);
+}
