@@ -41,6 +41,7 @@ h1 {
     padding: 1rem;
     border-radius: 0.2rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .data-p {
@@ -88,12 +89,19 @@ button {
     margin: 0 0.2rem;
 }
 
-.buy-btn:hover {
+button:hover{
+    transition-duration: 0.2s;
     cursor: pointer;
+}
+
+.buy-btn:hover {
     background-color: rgb(156, 253, 137);
 }
 
 .sell-btn:hover {
-    cursor: pointer;
     background-color: rgb(253, 137, 137);
+}
+
+.buy-max:hover, .sell-max:hover {
+    background-color: rgb(134, 217, 255);
 }

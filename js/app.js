@@ -38,10 +38,15 @@ function exchange() {
             setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1600)
         }
         btcOwned.innerText = buy.value
-        Math.floor((buy.value*btcPrice) * 100000) / 100000
-        usdOwned.innerText = (usdBalance - Math.floor((buy.value*btcPrice) * 100000) / 100000).toFixed(3)
+        Math.floor((buy.value * btcPrice) * 100000) / 100000
+        usdOwned.innerText = (usdBalance - Math.floor((buy.value * btcPrice) * 100000) / 100000).toFixed(3)
         buy.value = 0
         exchange()
+    })
+    sellBtn.addEventListener('click', () => {
+       if (sell.value > btcBalance){
+        console.log('nop')
+       }
     })
 
 }
