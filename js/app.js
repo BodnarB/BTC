@@ -1,9 +1,12 @@
 const dataHTML = document.querySelector('.data-div')
 const dataBtn = document.querySelector('.data-btn')
+const buyBtn = document.querySelector('.buy-btn')
+const sellBtn = document.querySelector('.sell-btn')
 const buy = document.querySelector('.buy-js')
 const sell = document.querySelector('.sell-js')
 const usd = document.querySelector('.usd-balance')
 const btcOwned = document.querySelector('.btc-balance')
+const buyMaxBtn = document.querySelector('.buy-max')
 let btcPrice
 let btcDisplay
 let btcHistory = []
@@ -19,6 +22,10 @@ function exchange() {
     if (usdBalance <= 0) {
         buy.disabled = true
     }
+    buyMaxBtn.addEventListener('click', () => {
+       console.log((usdBalance/btcPrice).toFixed(5)) 
+       buy.value = (usdBalance/btcPrice).toFixed(5)
+    })
 
 }
 
@@ -36,7 +43,7 @@ function btc() {
     timestamps.push(currentTime)
     dataHTML.innerText = `BTC current price: ${btcDisplay} $`
     chart()
-    setTimeout(btc, 5000)
+    setTimeout(btc, 10000)
 }
 
 
