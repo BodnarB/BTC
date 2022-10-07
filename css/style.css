@@ -174,3 +174,22 @@ main {
 .trades-history {
     padding: 0 0.5rem;
 }
+
+.api-data {
+    border: 1px solid rgba(255, 166, 0, 0.637);
+    padding: 1rem 0.7rem;
+    border-radius: 0.2rem;
+}
+
+.info-title {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.788);
+    font-weight: 500;
+    padding: 0.4rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.39);
+}
+
+.data-info {
+    margin-top: 0.3rem;
+}
