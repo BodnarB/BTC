@@ -8,9 +8,12 @@ body {
 }
 
 h1 {
-    margin: 2rem 0;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
     text-align: center;
     font-size: 1.5rem;
+    background-color: rgb(14, 14, 14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #myChart {
@@ -146,4 +149,23 @@ main {
     display: flex;
     justify-content: space-around;
     padding: 0.3rem 0;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.buy-icon-info {
+    display: none;
+    position: absolute;
+    top: -100%;
+    background-color: black;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+}
+
+.buy-icon:hover ~.buy-icon-info {
+    display: block;
+}
+
+.trades-items img {
+    height: 20px;
 }

@@ -26,7 +26,11 @@ function exchange() {
             btcBalanceNUM += parseFloat(buyInput.value)
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
-            tradesHistory.innerHTML += `<div class="trades-items"><p>${buyInput.value}</p> <p> ${btcPrice}</p></div>`
+            tradesHistory.innerHTML += `
+            <div class="trades-items">          
+            <p>${buyInput.value}</p><img class="buy-icon" src="./assets/arrow-left-short.svg" alt="">  <p class="buy-icon-info">BTC purchased</p> 
+            <p>${btcPrice}</p> 
+            </div>`
             buyInput.value = 0
         }
     })
