@@ -2,6 +2,7 @@ const buyInput = document.querySelector('.buy-js')
 const sellInput = document.querySelector('.sell-js')
 const usdBalanceHTML = document.querySelector('.usd-balance')
 const btcBalanceHTML = document.querySelector('.btc-balance')
+const tradesHistory = document.querySelector('.trades-history')
 let btcPrice
 let btcDisplay
 let btcHistory = []
@@ -25,6 +26,7 @@ function exchange() {
             btcBalanceNUM += parseFloat(buyInput.value)
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
+            tradesHistory.innerHTML += `<div class="trades-items"><p>${buyInput.value}</p> <p> ${btcPrice}</p></div>`
             buyInput.value = 0
         }
     })
