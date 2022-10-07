@@ -9,7 +9,7 @@ body {
 
 h1 {
     padding: 1.5rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: center;
     font-size: 1.5rem;
     background-color: rgb(14, 14, 14);
@@ -17,7 +17,7 @@ h1 {
 }
 
 #myChart {
-    margin: 2rem auto;
+    margin: 2rem auto 0;
     background-color: rgb(59, 59, 59);
     border: 1px solid rgba(245, 245, 245, 0.1);
 }
@@ -169,4 +169,8 @@ main {
 
 .trades-items img {
     height: 22px;
+}
+
+.trades-history {
+    padding: 0 0.5rem;
 }
