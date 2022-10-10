@@ -178,7 +178,7 @@ main {
 
 .trades-history {
     padding: 0 0.5rem;
-    height: 315px;
+    height: 305px;
     overflow: scroll;
     overflow-x: hidden;
 }
