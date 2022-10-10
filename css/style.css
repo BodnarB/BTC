@@ -17,7 +17,7 @@ h1 {
 }
 
 #myChart {
-    margin: 2rem auto 0;
+    margin-top: 2rem;
     background-color: rgb(59, 59, 59);
     border: 1px solid rgba(245, 245, 245, 0.1);
 }
@@ -27,7 +27,6 @@ h1 {
     align-items: center;
     justify-content: center;
     grid-template-columns: 40% 47%;
-    margin: 0 auto;
     padding: 1rem;
     gap: 1rem;
     max-width: 800px;
@@ -124,13 +123,13 @@ button:hover {
 main {
     margin: 0 auto;
     max-width: 1300px;
-    display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-areas: "side main";
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .mid {
-    grid-area: main;
+    width: 60%;
 }
 
 .my-trades {
@@ -160,8 +159,8 @@ main {
 .buy-icon-info {
     display: none;
     position: absolute;
-    top: -100%;
-    left: 40%;
+    bottom: -82%;
+    left: 25%;
     background-color: black;
     padding: 0.4rem;
     border-radius: 0.2rem;
@@ -182,13 +181,13 @@ main {
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
+.trades-history::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.404);
     border-radius: 0.5rem;
     width: 10px;
 }
 
-::-webkit-scrollbar-thumb {
+.trades-history::-webkit-scrollbar-thumb {
     background-color: rgba(248, 190, 1, 0.829);
     border-radius: 0.5rem;
 }

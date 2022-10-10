@@ -25,7 +25,7 @@ function exchange() {
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
             time = new Date()
             currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
-            myTrades.push({ 'price': btcPrice, 'btc': buyInput.value, 'time': currentTime, 'event': 'purchased', 'icon': 'left' })
+            myTrades.unshift({ 'price': btcPrice, 'btc': buyInput.value, 'time': currentTime, 'event': 'purchased', 'icon': 'left' })
             renderTrades()
             buyInput.value = 0
         }
@@ -44,10 +44,9 @@ function exchange() {
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceNUM += parseFloat((sellInput.value * btcPrice).toFixed(5))
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
-
             time = new Date()
             currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
-            myTrades.push({ 'price': btcPrice, 'btc': sellInput.value, 'time': currentTime, 'event': 'sold', 'icon': 'right' })
+            myTrades.unshift({ 'price': btcPrice, 'btc': sellInput.value, 'time': currentTime, 'event': 'sold', 'icon': 'right' })
             renderTrades()
             sellInput.value = 0
         }
