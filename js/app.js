@@ -18,12 +18,7 @@ function exchange() {
         buyInput.value = Math.floor((usdBalanceNUM / btcPrice) * 100000) / 100000
     })
     document.querySelector('.buy-btn').addEventListener('click', () => {
-        if (buyInput.value > parseFloat(usdBalanceNUM / btcPrice).toFixed(5)) {
-            document.querySelector('.info').classList.toggle('hide')
-            buyInput.value = 0
-            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1600)
-        }
-        else {
+        if (buyInput.value <= parseFloat(usdBalanceNUM / btcPrice).toFixed(5) && buyInput.value > 0) {
             usdBalanceNUM -= (buyInput.value * btcPrice).toFixed(2)
             btcBalanceNUM += parseFloat(buyInput.value)
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
@@ -35,17 +30,17 @@ function exchange() {
             </div>`
             buyInput.value = 0
         }
+        else {
+            document.querySelector('.info').classList.toggle('hide')
+            buyInput.value = 0
+            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1700)
+        }
     })
     document.querySelector('.sell-max').addEventListener('click', () => {
         sellInput.value = btcBalanceNUM.toFixed(5)
     })
     document.querySelector('.sell-btn').addEventListener('click', () => {
-        if (sellInput.value > btcBalanceNUM.toFixed(5)) {
-            document.querySelector('.info').classList.toggle('hide')
-            sellInput.value = 0
-            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1600)
-        }
-        else {
+        if (sellInput.value <= btcBalanceNUM.toFixed(5) && sellInput.value > 0) {
             btcBalanceNUM -= parseFloat(sellInput.value)
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceNUM += parseFloat((sellInput.value * btcPrice).toFixed(5))
@@ -57,10 +52,13 @@ function exchange() {
             </div>`
             sellInput.value = 0
         }
+        else {
+            document.querySelector('.info').classList.toggle('hide')
+            sellInput.value = 0
+            setTimeout(function () { document.querySelector('.info').classList.toggle('hide') }, 1700)
+        }
     })
 }
-
-
 
 function btc() {
     if (timestamps.length === 11) {
@@ -106,13 +104,12 @@ function chart() {
     });
 }
 
-
 async function apiBTC() {
     let response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd`)
     let result = await response.json()
     low24 = result[0].low_24h
     high24 = result[0].high_24h
-    console.log(low24, high24)
+    console.log(result[0])
     document.querySelector('.api-data').innerHTML += `<p class="data-info">24h Low - ${low24} USD</p><p class="data-info">24h High - ${high24} USD</p>`
 }
 

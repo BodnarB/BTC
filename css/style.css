@@ -70,14 +70,15 @@ h1 {
     z-index: 1;
     font-size: 1.1rem;
     bottom: -30%;
-    left: 50%;
+    left: 10%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0.5rem;
     border-radius: 0.2rem;
 }
 
 .hide {
-    display: none;
+    transition-duration: 0.25s;
+    opacity: 0;
 }
 
 input {
