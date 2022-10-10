@@ -63,8 +63,9 @@ function renderTrades() {
     for (let trade of myTrades) {
         tradesHistory.innerHTML += `
         <div class="trades-items">          
-        <p>${trade.price}</p><img class="buy-icon" src="./assets/arrow-${trade.icon}-short.svg" alt=""> <p class="buy-icon-info">BTC ${trade.event}</p> 
-        <p>${trade.btc}</p> 
+        <p>${trade.price}</p><img class="buy-icon" src="./assets/arrow-${trade.icon}-short.svg" alt=""> <p class="buy-icon-info">BTC ${trade.event} at ${trade.time}</p> 
+        <p>${trade.btc}</p>
+      
         </div>`
     }
 }
