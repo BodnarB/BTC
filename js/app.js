@@ -65,7 +65,6 @@ function renderTrades() {
         <div class="trades-items">          
         <p>${trade.price}</p><img class="buy-icon" src="./assets/arrow-${trade.icon}-short.svg" alt=""> <p class="buy-icon-info">BTC ${trade.event} at ${trade.time}</p> 
         <p>${trade.btc}</p>
-      
         </div>`
     }
 }
