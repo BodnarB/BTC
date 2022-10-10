@@ -4,9 +4,6 @@ const usdBalanceHTML = document.querySelector('.usd-balance')
 const btcBalanceHTML = document.querySelector('.btc-balance')
 const tradesHistory = document.querySelector('.trades-history')
 let btcPrice
-let btcDisplay
-let low24
-let high24
 let btcHistory = []
 let timestamps = []
 let sortedY = btcHistory.slice().sort((a, b) => a - b)
@@ -67,11 +64,10 @@ function btc() {
     }
     btcPrice = Math.floor(Math.random() * 100) + 20000
     btcHistory.push(btcPrice)
-    btcDisplay = new Intl.NumberFormat().format(btcPrice)
     let time = new Date()
     let currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
     timestamps.push(currentTime)
-    document.querySelector('.data-div').innerText = `BTC current price: ${btcDisplay} $`
+    document.querySelector('.data-div').innerText = `BTC current price: ${new Intl.NumberFormat().format(btcPrice)} $`
     chart()
     setTimeout(btc, 5000)
 }
@@ -107,10 +103,7 @@ function chart() {
 async function apiBTC() {
     let response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd`)
     let result = await response.json()
-    low24 = result[0].low_24h
-    high24 = result[0].high_24h
-    console.log(result[0])
-    document.querySelector('.api-data').innerHTML += `<p class="data-info">24h Low - ${low24} USD</p><p class="data-info">24h High - ${high24} USD</p>`
+    document.querySelector('.api-data').innerHTML += `<p class="data-info">24h Low - ${result[0].low_24h} USD</p><p class="data-info">24h High - ${result[0].high_24h} USD</p>`
 }
 
 function load() {
