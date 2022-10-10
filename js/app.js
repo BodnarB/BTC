@@ -6,6 +6,9 @@ const tradesHistory = document.querySelector('.trades-history')
 let btcPrice
 let btcHistory = []
 let timestamps = []
+let myTrades = []
+let time
+let currentTime
 let sortedY = btcHistory.slice().sort((a, b) => a - b)
 let usdBalanceNUM = parseFloat(document.querySelector('.usd-balance').innerText)
 let btcBalanceNUM = parseFloat(document.querySelector('.btc-balance').innerText)
@@ -20,11 +23,10 @@ function exchange() {
             btcBalanceNUM += parseFloat(buyInput.value)
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
-            tradesHistory.innerHTML += `
-            <div class="trades-items">          
-            <p>${btcPrice}</p><img class="buy-icon" src="./assets/arrow-left-short.svg" alt=""> <p class="buy-icon-info">BTC purchased</p> 
-            <p>${buyInput.value}</p> 
-            </div>`
+            time = new Date()
+            currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
+            myTrades.push({ 'price': btcPrice, 'btc': buyInput.value, 'time': currentTime, 'event': 'purchased', 'icon': 'left' })
+            renderTrades()
             buyInput.value = 0
         }
         else {
@@ -42,11 +44,11 @@ function exchange() {
             btcBalanceHTML.innerText = btcBalanceNUM.toFixed(5)
             usdBalanceNUM += parseFloat((sellInput.value * btcPrice).toFixed(5))
             usdBalanceHTML.innerText = usdBalanceNUM.toFixed(2)
-            tradesHistory.innerHTML += `
-            <div class="trades-items">          
-            <p>${btcPrice}</p><img class="buy-icon" src="./assets/arrow-right-short.svg" alt="">  <p class="buy-icon-info">BTC sold</p> 
-            <p>${sellInput.value}</p> 
-            </div>`
+
+            time = new Date()
+            currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
+            myTrades.push({ 'price': btcPrice, 'btc': sellInput.value, 'time': currentTime, 'event': 'sold', 'icon': 'right' })
+            renderTrades()
             sellInput.value = 0
         }
         else {
@@ -57,6 +59,17 @@ function exchange() {
     })
 }
 
+function renderTrades() {
+    tradesHistory.innerHTML = ``
+    for (let trade of myTrades) {
+        tradesHistory.innerHTML += `
+        <div class="trades-items">          
+        <p>${trade.price}</p><img class="buy-icon" src="./assets/arrow-${trade.icon}-short.svg" alt=""> <p class="buy-icon-info">BTC ${trade.event}</p> 
+        <p>${trade.btc}</p> 
+        </div>`
+    }
+}
+
 function btc() {
     if (timestamps.length === 11) {
         timestamps.shift()
@@ -64,8 +77,8 @@ function btc() {
     }
     btcPrice = Math.floor(Math.random() * 100) + 20000
     btcHistory.push(btcPrice)
-    let time = new Date()
-    let currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
+    time = new Date()
+    currentTime = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
     timestamps.push(currentTime)
     document.querySelector('.data-div').innerText = `BTC current price: ${new Intl.NumberFormat().format(btcPrice)} $`
     chart()
